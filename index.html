@@ -1,0 +1,342 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-video="https://d3k5xyayaartr5.cloudfront.net/programming-ide/programming-ide.webm">
+					<h2>Automatización en el Flujo Front-end</h2>
+					<h3>Jade - Stylus - Coffeescript</h3>
+					<h1>Gulp.js</h1>
+				</section>
+				<section>
+					<section data-background-image="https://heavyeditorial.files.wordpress.com/2013/05/tumblr_inline_mjjyvn5q3g1r405y9.gif?w=780">
+						<h2>Jade</h2>
+						<blockquote>Motor de plantillas de alto rendimiento influenciado por HAML</blockquote>
+						<p> Cleaner version of HTML</p>
+						<i style="font-size:20px">Implemented with JS for Node.js</i>
+						<br>
+						<i style="font-size:16px;">Pst! Ahora llamame Pug </i>
+					</section>
+					<section>
+						<h2>Ventajas de usar Jade</h2>
+						<ul>
+							<li>Escritura simplificada - Adios <> - Hola Tabs</li>
+							<li>Buenas practicas</li>
+							<li>Modularización del HTML</li>
+							<li>Posibilidad de utilizar logica (if, else, for, variables...)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Instalación de Jade</h2>
+						<ul>
+							<li>Instalar node.js desde <a href="https://nodejs.org">https://nodejs.org</a></li>
+							<li>Verificar instalacíon de node.js
+							<pre><code>$ node -v</code></pre>
+							</li>
+							<li>Instalar Jade
+							<pre><code>$ npm install -g jade</code></pre>
+							</li>
+						</ul>
+					</section>
+					<section>
+						Simple HTML
+						<pre>
+							<code>
+<div class="io">
+	<h2>Social Networks</h2>
+	<ul>
+		<li>
+			<a href="http://plus.google.com">Google +</a>
+		</li>
+		<li>
+			<a href="http://www.facebook.com">Facebook</a>
+		</li>
+		<li>
+			<a href="http://www.twitter.com">Twitter</a>
+		</li>
+		<li>
+			<a href="http://www.instagram.com">Instagram</a>
+		</li>
+	</ul>
+</div>
+							</code>
+						</pre>
+					</section>
+					<section>
+						Simple Jade
+						<pre>
+						<code>
+.io
+  h2 Social Networks
+  ul
+    li
+      a(href="http://plus.google.com/") Google +
+    li
+      a(href="http://www.facebook.com/") Facebook
+    li
+      a(href="http://www.twitter.com/") Twitter
+    li
+      a(href="http://www.instagram.com/") Instagram
+						</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Texto Plano</h2>
+						<pre>
+							<code>
+p Este es un parrafo
+p Este es un texto que
+  | continua en un salto de linea ...
+  | varias veces ...
+							</code>
+						</pre>
+						<pre>
+							<code>
+<p>Este es un parrafo</p>
+<p>Este es un texto que continua en un salto de linea ... varias veces ....</p>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Comentarios</h2>
+						<pre>
+							<code>
+// Comentario html
+//- Comentario Jade
+							</code>
+						</pre>
+						<pre>
+							<code>
+<!-- Comentario html -->
+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>HTML en linea</h2>
+						<pre>
+							<code>
+div.row
+  div.columna
+    <a href="#">See more</a>
+							</code>
+						</pre>
+						<pre>
+							<code>
+<div class="row">
+  <div class="columna">
+    <a href="#">See more</a>
+  </div>
+</div>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Anidamiento</h2>
+						<pre>
+							<code>
+.row
+  .column
+    p
+      a(href="#") Link
+    p Sample text
+//- Anidación continua
+.row: .column: p: a(href="#") Link
+							</code>
+						</pre>
+						<pre>
+							<code>
+<div class="row">
+  <div class="column">
+    <p><a href="#">Link</a></p>
+    <p>Sample text</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <p><a href="#">Link</a></p>
+  </div>
+</div>
+							</code>
+						</pre>
+				</section>
+
+				<section>
+					<h2>Etiquetas, atributos y contenido</h2>
+					<pre>
+						<code>
+// Jade a HTML 
+p Parrafo
+p.rojo Parrafo rojo
+p.azul#description Parrafo Azul de id description
+form(method="POST", action="/", class="nice-form", id="test-form")
+  input(type="text" placeholder="Ingrese un texto")
+							</code>
+							<code>
+<!-- Jade a HTML -->
+<p>Parrafo</p>
+<p class="rojo">Parrafo rojo</p>
+<p id="description" class="azul">Parrafo Azul de id description</p>
+<form method="POST" action="/" id="test-form" class="nice-form">
+	<input type="text" placeholder="Ingrese un texto" />
+</form>
+						</code>
+					</pre>
+				</section>
+				<section>
+          <h2>Preparandonos para modularizar</h2>
+					<pre>
+						<code>
+html
+  head
+    title Web Test
+  body
+    //- Contenido dinamico
+    .wrapper
+      h1 Mi Lista
+      ul
+        li Elemento 1
+        li Elemento 2
+        li Elemento 3
+        li Elemento 4
+    //- Contenido estatico
+    footer
+      p Copyright 2016 @ Jean Paul Diaz
+						</code>
+					</pre>
+				</section>
+				<section style="vertical-align:top;">
+					<h2 style="text-align:left;">Extensión de plantillas</h2>
+          <p>extendes - include</p>
+					<pre style="height:300px;width: 30%; display:inline-block; vertical-align:top;">
+						<code style="height:100%;">
+//- layouts/default.jade
+doctype html
+html
+  head
+    title Web test
+  body
+    block content
+    include includes/footer.jade
+						</code>
+					</pre>
+					<pre style="height:300px;width: 30%; display:inline-block; vertical-align:top;">
+						<code style="height:100%;">
+//- includes/footer.jade
+footer
+  p Copyright 2016 @ Jean Paul Diaz
+						</code>
+					</pre>
+					<pre class="" style="height:300px;width: 30%; display:inline-block; vertical-align:top;">
+						<code style="height:100%;">
+//- index.jade
+extends ./layouts/default.jade
+block content
+  .wrapper
+    h1 Mi Lista
+    ul
+      li Elemento 1
+      li Elemento 2
+      li Elemento 3
+      li Elemento 4
+						</code>
+					</pre>
+				</section>
+				<section>
+<p style="text-align:left">Ejemplo de estructura de archivos para Jade</p>
+					<pre class="bash" style="width: 45%; display:inline-block;">
+						<code class="hljs">
+pre-app
+|
+|–– includes
+|   |–– footer.jade
+|   |–– head.jade
+|   |–– header.jade
+|   |–– navigation.jade
+|
+|–– layouts
+|   |–– default.jade
+|   |–– pages.jade
+|
+|–– index.jade
+|–– about.jade
+|–– contact.jade
+						</code>
+					</pre>
+					<pre class="bash" style="width: 45%; display:inline-block;">
+						<code class="hljs">
+app
+|
+|–– styles
+|   |–– main.css
+|   |–– main.min.css
+|
+|–– scripts
+|   |–– scripts.js
+|
+|–– images
+|   |–– logo.jpg
+|
+|–– index.html
+|–– about.html
+|–– contact.html
+						</code>
+					</pre>
+				</section>
+        <section style="text-align:center;">
+          <h2>See more!</h2>
+          <img src="https://camo.githubusercontent.com/c500bc8bb41bf3a19661199cd969808f57fb47ee/687474703a2f2f737667706f726e2e636f6d2f6c6f676f732f7075672e737667" alt="" style="width:40%;display:inline-block;vertical-align:middle;margin:3%;">
+          <img src="http://blog.alejandromolero.com/wp-content/uploads/2015/08/jade-cover.jpg" alt="" style="width:40%;vertical-align:middle;display:inline-block;margin:3%;">
+          <br>
+          <a href="http://jade-lang.com/reference/" target="_blank">http://jade-lang.com/reference/</a>
+          <br>
+          <a href="https://github.com/pugjs/pug" target="_blank">https://github.com/pugjs/</a>
+        </section>
+      </section>
+      <section>
+      <p>moar</p>
+    </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
