@@ -52,7 +52,14 @@ html:-webkit-full-screen-ancestor {
 
 html:-moz-full-screen-ancestor {
   background-color: inherit; }
-
+.reveal pre.two{
+  width: 45%;
+  display:  inline-block;
+  vertical-align: top;
+}
+.reveal pre.two code{
+  height: 500px;
+}
 /*********************************************
  * VIEW FRAGMENTS
  *********************************************/
@@ -1329,3 +1336,4 @@ html:-moz-full-screen-ancestor {
 
 .zoomed .reveal .roll span:after {
   visibility: hidden; }
+

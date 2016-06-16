@@ -103,30 +103,41 @@
 					</section>
 					<section>
 						<h2>Texto Plano</h2>
-						<pre>
+						<pre class="two">
 							<code>
-p Este es un parrafo
-p Este es un texto que
-  | continua en un salto de linea ...
-  | varias veces ...
+h1 Titulo
+
+a(href="#") Link
+
+p Este es un parrafo simple
+
+p Este
+  | es 
+  | un 
+  | parrafo simple
 							</code>
 						</pre>
-						<pre>
+						<pre class="two">
 							<code>
-<p>Este es un parrafo</p>
-<p>Este es un texto que continua en un salto de linea ... varias veces ....</p>
+<h1>Titulo</h1>
+
+<a href="#">Link</a>
+
+<p>Este es un parrafo simple</p>
+
+<p>Este es un parrafo simple</p>
 							</code>
 						</pre>
 					</section>
 					<section>
 						<h2>Comentarios</h2>
-						<pre>
+						<pre class="two">
 							<code>
 // Comentario html
 //- Comentario Jade
 							</code>
 						</pre>
-						<pre>
+						<pre class="two">
 							<code>
 <!-- Comentario html -->
 
@@ -135,14 +146,14 @@ p Este es un texto que
 					</section>
 					<section>
 						<h2>HTML en linea</h2>
-						<pre>
+						<pre class="two">
 							<code>
 div.row
   div.columna
     <a href="#">See more</a>
 							</code>
 						</pre>
-						<pre>
+						<pre class="two">
 							<code>
 <div class="row">
   <div class="columna">
@@ -154,18 +165,20 @@ div.row
 					</section>
 					<section>
 						<h2>Anidamiento</h2>
-						<pre>
+						<pre  class="two">
 							<code>
 .row
   .column
     p
       a(href="#") Link
     p Sample text
-//- Anidación continua
+
+
+// Anidación continua
 .row: .column: p: a(href="#") Link
 							</code>
 						</pre>
-						<pre>
+						<pre class="two">
 							<code>
 <div class="row">
   <div class="column">
@@ -174,6 +187,7 @@ div.row
   </div>
 </div>
 
+<!-- Anidación continua -->
 <div class="row">
   <div class="column">
     <p><a href="#">Link</a></p>
@@ -187,21 +201,27 @@ div.row
 					<h2>Etiquetas, atributos y contenido</h2>
 					<pre>
 						<code>
-// Jade a HTML 
-p Parrafo
-p.rojo Parrafo rojo
-p.azul#description Parrafo Azul de id description
-form(method="POST", action="/", class="nice-form", id="test-form")
-  input(type="text" placeholder="Ingrese un texto")
-							</code>
-							<code>
+// Jade a HTML
+.contenedor
+  p Parrafo
+  //- clases
+  p.rojo Parrafo rojo
+  //- id
+  p#description Parrafo Azul de id description
+  //- Atributos
+  form(method="POST", action="/", class="nice-form", id="test-form")
+    input(type="text" placeholder="Ingrese un texto")
+						</code>
+						<code>
 <!-- Jade a HTML -->
-<p>Parrafo</p>
-<p class="rojo">Parrafo rojo</p>
-<p id="description" class="azul">Parrafo Azul de id description</p>
-<form method="POST" action="/" id="test-form" class="nice-form">
-	<input type="text" placeholder="Ingrese un texto" />
-</form>
+<div class="contenedor">
+  <p>Parrafo</p>
+  <p class="rojo">Parrafo rojo</p>
+  <p id="description">Parrafo Azul de id description</p>
+  <form method="POST" action="/" id="test-form" class="nice-form">
+    <input type="text" placeholder="Ingrese un texto" />
+  </form>
+</div>
 						</code>
 					</pre>
 				</section>
@@ -229,7 +249,7 @@ html
 				</section>
 				<section style="vertical-align:top;">
 					<h2 style="text-align:left;">Extensión de plantillas</h2>
-          <p>extendes - include</p>
+          <p>include - extends</p>
 					<pre style="height:300px;width: 30%; display:inline-block; vertical-align:top;">
 						<code style="height:100%;">
 //- layouts/default.jade
@@ -239,7 +259,7 @@ html
     title Web test
   body
     block content
-    include includes/footer.jade
+    include ../includes/footer.jade
 						</code>
 					</pre>
 					<pre style="height:300px;width: 30%; display:inline-block; vertical-align:top;">
@@ -315,9 +335,9 @@ app
           <a href="https://github.com/pugjs/pug" target="_blank">https://github.com/pugjs/</a>
         </section>
       </section>
-      <section>
-      <p>moar</p>
-    </section>
+<section>
+	<p>Stylus</p>
+</section>
 			</div>
 		</div>
 
